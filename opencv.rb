@@ -65,4 +65,15 @@ class Opencv < Formula
   def caveats
     python.standard_caveats if python
   end
+
+  def patches
+    # Fixes Undefined symbols for architecture x86_64:
+    # "_faacEncClose", referenced from:
+    # etc. linking issues
+    # From: http://tech.enekochan.com/2012/07/27/install-opencv-2-4-2-with-ffmpeg-support-in-mac-os-x-10-8/
+    [
+      "https://gist.github.com/randvoorhies/6887471/raw"
+    ]
+  end
+
 end
